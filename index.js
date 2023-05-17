@@ -37,30 +37,24 @@ async function run() {
     const skillLists = jobPortaldatabase.collection("skillLists");
 
     app.get("/alljobs", async (req, res) => {
-      try {
+     
          const result = await allJobs.find().toArray();
          res.send(result);
-      } catch (error) {
-          res.send({error:error, message:"Error"})
-      }      
+         
     });
 
     app.get('/navmenus', async (req, res)=> {
-        try {
+       
              const result = await navmenus.find().toArray();
              res.send(result);
-        } catch (error) {
-             res.send({ error: error, message: "Error" });
-        }
+         
     } )
 
     app.get('/skills', async (req, res)=> {
-        try {
+        
             const result = await skillLists.find().toArray();
             res.send(result);
-        } catch (error) {
-            res.send({ error: error, message: "Error" });
-        }
+       
     } )
 
     // Send a ping to confirm a successful connection
